@@ -119,3 +119,41 @@ Turn on the osTicket virtual machine and use Remote Desktop to access it.
 <img width="497" height="375" alt="OS TICKET 1 " src="https://github.com/user-attachments/assets/17bec1c1-3687-49b2-85c7-2681fd6f0b67" />
 
 
+Open Two Browser Tabs:
+One for your lab checklist, another for managing osTicket tasks.
+
+<img width="423" height="248" alt="OS TICKET 2" src="https://github.com/user-attachments/assets/40e643b1-03fb-453c-955a-79b79428922e" />
+
+
+Open Two Browser Tabs:
+One for your lab checklist, another for managing osTicket tasks.
+
+Log in as Admin and Configure Departments:
+In the admin panel, archive the Maintenance department and set CIS Admin to “top level.”
+Create a Ticket as End User:
+Switch to the end user portal and create a ticket (e.g., Karen reports online banking down).
+
+
+<img width="768" height="305" alt="os Ticket 3 " src="https://github.com/user-attachments/assets/87980dc8-a990-4b61-8300-0753fa43b06f" />
+
+Log in as Help Desk Agent (John):
+Review, assign the correct department, set the SLA/severity, and correct the help topic.
+
+Assign/Transfer the Ticket:
+Route the ticket to the relevant department or team (e.g., Online Banking).
+
+<img width="536" height="362" alt="OS TICKET 4" src="https://github.com/user-attachments/assets/20ff15ec-d2a5-41af-9547-29b39157e806" />
+
+
+Log in as Specialist (Jane):
+As Jane, take ownership, troubleshoot, update ticket status, and log any actions taken.
+
+
+
+Resolve and Close the Ticket:
+
+
+
+
+Mark the ticket as resolved/closed once the issue is fixed and document the outcome.
+
