@@ -8,13 +8,28 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 Video Demonstration
 
-YouTube: How To Install osTicket with Prerequisites
+
+
+YouTube: osTicket Configuration and Administration: Your Guide to Free Helpdesk & Ticketing Software
+
+
+
+https://youtu.be/IHcMBVq40iE?si=eR9_Zz_itH0Lfy00
+
+
+
+
 
 Environments and Technologies Used
 
 Microsoft Azure (Virtual Machines/Compute)
 Remote Desktop
 Internet Information Services (IIS)
+OSTicket Platform
+
+
+
+
 
 Operating Systems Used
 
