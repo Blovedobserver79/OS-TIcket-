@@ -107,12 +107,15 @@ Complete installation and log in with your admin credentials.
 
 <img width="1412" height="763" alt="azure 10" src="https://github.com/user-attachments/assets/0b7918b2-82e8-4282-821c-e940e8eb5978" />
 
-
+Rename “upload” to “osTicket.” Final database and osTicket setup: Install HeidiSQL. Connect using root/root. Create a new database called “osticket”. In browser, go to osTicket setup page, enter admin info, and database settings (database: osticket, user: root, password: root). Complete installation and log in with your admin credentials.
 
 
 
 <img width="1012" height="577" alt="azure 11" src="https://github.com/user-attachments/assets/730c99d0-e9d8-4fa2-83dd-eb1379d2f2b9" />
 
+Start and Connect to VM:
+Turn on the osTicket virtual machine and use Remote Desktop to access it.
 
+<img width="497" height="375" alt="OS TICKET 1 " src="https://github.com/user-attachments/assets/17bec1c1-3687-49b2-85c7-2681fd6f0b67" />
 
 
