@@ -109,11 +109,4 @@ This repository documents the prerequisites and installation of the open-source 
 ## Completion
 The osTicket system is now installed and accessible at http://localhost/osTicket (client) or http://localhost/osTicket/scp (admin).  
 
-**Important:** This project focuses **only** on prerequisites and installation. Post-installation configuration, ticket creation, and lifecycle demonstration are **not** included and have been removed.
-
-**Repository Recommendations:**
-- Rename the repository to `osTicket-Prerequisites-and-Installation` (or similar complete title).
-- Create an `images` folder and upload all screenshots there.
-- Update the image paths above to match your exact file names.
-- Delete any unused/irrelevant screenshots (e.g., ticket views, post-installation screens).
 
