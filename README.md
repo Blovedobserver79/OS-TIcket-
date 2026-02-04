@@ -1,171 +1,110 @@
-# OS-TIcket-
-OS TIcket 
-<img width="700" height="200" alt="image" src="https://github.com/user-attachments/assets/2f8ffe9e-7547-4ebd-a35a-966849d77c11" />
+# osTicket: Prerequisites and Installation
 
-osTicket - Prerequisites and Installation
+## Project Overview
+This repository documents the prerequisites and installation of the open-source help desk ticketing system **osTicket** on a Windows virtual machine in Microsoft Azure using Internet Information Services (IIS).
 
-This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.
+## Environments and Technologies Used
+- Microsoft Azure (Virtual Machines, Compute, Resource Group)
+- Remote Desktop
+- Internet Information Services (IIS)
 
-Video Demonstration
+## Operating Systems Used
+- Windows 10 Pro (21H2 or later)
 
+## List of Prerequisites
+- Azure subscription with the ability to create virtual machines
+- Virtual Machine (Windows 10) with at least 2 vCPUs and 8 GB RAM
+- Remote Desktop Connection enabled on the VM
+- Installation files downloaded and placed on the VM desktop:
+  - osTicket installation zip (containing the "upload" folder and supporting files)
+  - PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x64.zip)
+  - Microsoft Visual C++ Redistributable (VC_redist.x64.exe)
+  - IIS URL Rewrite Module (rewrite_amd64_en-US.msi)
+  - MySQL 5.5.62 (mysql-5.5.62-win32.msi)
+  - HeidiSQL (portable or installer)
 
+> **Note:** Replace the image placeholders below (e.g., `screenshot-1.png`) with your actual screenshot file names after uploading them to the repository. Use clear, cropped screenshots that exactly match each step.
 
-YouTube: osTicket Configuration and Administration: Your Guide to Free Helpdesk & Ticketing Software
+## Installation Steps
 
+1. **Create a Windows 10 Virtual Machine in Azure**  
+   Create a resource group, then create a Windows 10 Pro VM with at least 2 vCPUs and 8 GB RAM. Set an admin username and password you will remember. Note the public IP address.  
 
+   ![Create Azure VM and note settings](screenshot-1.png)
 
-https://youtu.be/IHcMBVq40iE?si=eR9_Zz_itH0Lfy00
+2. **Connect to the VM using Remote Desktop**  
+   Open Remote Desktop Connection on your local machine, enter the public IP address of the VM, and log in with the admin credentials you created.  
 
+   ![Remote Desktop connection to VM](screenshot-2.png)
 
+3. **Download and extract the osTicket installation files**  
+   Download the required files (listed in Prerequisites) to the VM desktop and extract them as needed.  
 
+   ![Installation files on desktop](screenshot-3.png)
 
+4. **Enable Internet Information Services (IIS) with CGI**  
+   Open Control Panel → Programs → Turn Windows features on or off.  
+   Enable **Internet Information Services** → **World Wide Web Services** → **Application Development Features** → **CGI**.  
+   Also enable **Common HTTP Features** (all sub-items) and **IIS Management Console**.  
 
-Environments and Technologies Used
+   ![Enabling IIS and CGI](screenshot-4.png)
 
-Microsoft Azure (Virtual Machines/Compute)
-Remote Desktop
-Internet Information Services (IIS)
-OSTicket Platform
+5. **Install PHP Manager for IIS**  
+   From the installation files folder, run the PHPManagerForIIS installer.  
 
+   ![PHP Manager installation](screenshot-5.png)
 
+6. **Install the URL Rewrite Module**  
+   Run the rewrite_amd64_en-US.msi installer.  
 
+   ![URL Rewrite Module installation](screenshot-6.png)
 
+7. **Extract PHP to C:\PHP**  
+   Create the folder C:\PHP and extract the PHP 7.3.8 contents into it.  
 
-Operating Systems Used
+   ![PHP extracted to C:\PHP](screenshot-7.png)
 
-Windows 11 (21H2)
+8. **Install Visual C++ Redistributable**  
+   Run VC_redist.x64.exe.  
 
-List of Prerequisites
+   ![VC Redistributable installation](screenshot-8.png)
 
-Item 1
+9. **Install MySQL 5.5.62**  
+   Run the MySQL installer. Choose **Typical** setup. Set the root password to "root" (or your preferred password).  
 
-Item 2
+   ![MySQL installation and password setup](screenshot-9.png)
 
-Item 3
+10. **Register PHP with IIS**  
+    Open IIS Manager (run as Administrator).  
+    Select the server name → double-click **PHP Manager** → **Register new PHP version** → browse to C:\PHP\php-cgi.exe.  
 
-Item 4
+    ![Registering PHP in IIS](screenshot-10.png)
 
-Item 5
+11. **Copy osTicket files to the web root**  
+    Extract the "upload" folder from the osTicket zip to C:\inetpub\wwwroot.  
+    Rename the folder from "upload" to "osTicket".  
 
-Installation Steps
+    ![osTicket files in wwwroot](screenshot-11.png)
 
-<img width="1707" height="905" alt="Azure 1" src="https://github.com/user-attachments/assets/b1c11e60-4e90-46c4-b483-09530964bf9e" />
+12. **Complete osTicket setup in the browser**  
+    Install and open HeidiSQL. Create a new session with hostname 127.0.0.1, username "root", password "root".  
+    Create a new database named "osticket".  
 
-Create a Windows 10 VM in Azure.
-At least 2 vCPUs, 8GB RAM. Name as you like.
-Assign a username and password.
+    ![Creating database in HeidiSQL](screenshot-12a.png)
 
+    Open a browser on the VM and navigate to http://localhost/osTicket/scp (or the setup wizard URL).  
+    Fill in the required information: admin email, name, database name "osticket", database user "root", database password "root".  
+    Complete the installation wizard.  
 
-<img width="1568" height="918" alt="Azure 2" src="https://github.com/user-attachments/assets/2c6b731a-7eb0-4cc6-a0d8-679061cc0e32" />
+    ![osTicket setup wizard](screenshot-12b.png)
 
-Connect to the VM using Remote Desktop.
-Use the public IP, username, and password.
+    ![Successful installation and admin login](screenshot-12c.png)
 
+## Completion
+The osTicket system is now installed and accessible at http://localhost/osTicket (staff) or http://localhost/osTicket/scp (admin).  
+This concludes the prerequisites and installation phase.
 
-<img width="1697" height="876" alt="azure 3" src="https://github.com/user-attachments/assets/0de86ac4-c5a5-4f55-b5aa-63e830177ec6" />
-
-Download and extract the OS ticket installation files onto the VM desktop.
-
-
-<img width="1547" height="930" alt="Azure 4" src="https://github.com/user-attachments/assets/713f2f25-b713-46d9-99fd-e533a4d719eb" />
-
-Enable IIS (Internet Information Services) and CGI:
-Go to Control Panel → Programs → Turn Windows features on or off.
-Enable “Internet Information Services” and under it, “CGI.”
-
-
-<img width="1882" height="912" alt="azure 5" src="https://github.com/user-attachments/assets/cf63a7a2-81b6-4101-bf15-448967410e36" />
-
-Install PHP Manager for IIS from the osTicket installation files folder.
-
-
-
-
-<img width="1916" height="1016" alt="azure 6" src="https://github.com/user-attachments/assets/fcfd55ff-5b6b-46d6-8b3c-8b28f5865ea3" />
-
-Install the IIS Rewrite Module from the same folder.
-
-
-
-<img width="547" height="592" alt="azure 7 " src="https://github.com/user-attachments/assets/81c094c1-bb0d-40b5-913a-9ce9e7279532" />
-
-Create a folder C:\PHP and extract PHP binaries (php-7.3.8) into it.
-
-
-
-
-<img width="1852" height="532" alt="azure 8" src="https://github.com/user-attachments/assets/3503e570-452c-4268-ba46-23981ecf9037" />
-
-Install the “vcredist” (C++ Redistributable) from the installation files folder.
-
-
-
-
-<img width="1215" height="547" alt="azure 9" src="https://github.com/user-attachments/assets/dbf3c169-db73-460e-8d06-365ef346a39c" />
-
-Install MySQL (version 5.5.62):
-Choose typical setup.
-For “root” user, set password to “root”.
-egister PHP with IIS:
-Open IIS Manager as Administrator.
-Double-click PHP Manager, “Register new PHP version,” and select C:\PHP\php-cgi.exe.
-Copy and configure osTicket web files:
-Extract the osTicket “upload” folder into C:\inetpub\wwwroot.
-Rename “upload” to “osTicket.”
-Final database and osTicket setup:
-Install HeidiSQL.
-Connect using root/root.
-Create a new database called “osticket”.
-In browser, go to osTicket setup page, enter admin info, and database settings (database: osticket, user: root, password: root).
-Complete installation and log in with your admin credentials.
-
-
-<img width="1412" height="763" alt="azure 10" src="https://github.com/user-attachments/assets/0b7918b2-82e8-4282-821c-e940e8eb5978" />
-
-Rename “upload” to “osTicket.” Final database and osTicket setup: Install HeidiSQL. Connect using root/root. Create a new database called “osticket”. In browser, go to osTicket setup page, enter admin info, and database settings (database: osticket, user: root, password: root). Complete installation and log in with your admin credentials.
-
-
-
-<img width="1012" height="577" alt="azure 11" src="https://github.com/user-attachments/assets/730c99d0-e9d8-4fa2-83dd-eb1379d2f2b9" />
-
-Start and Connect to VM:
-Turn on the osTicket virtual machine and use Remote Desktop to access it.
-
-<img width="497" height="375" alt="OS TICKET 1 " src="https://github.com/user-attachments/assets/17bec1c1-3687-49b2-85c7-2681fd6f0b67" />
-
-
-Open Two Browser Tabs:
-One for your lab checklist, another for managing osTicket tasks.
-
-<img width="423" height="248" alt="OS TICKET 2" src="https://github.com/user-attachments/assets/40e643b1-03fb-453c-955a-79b79428922e" />
-
-
-Open Two Browser Tabs:
-One for your lab checklist, another for managing osTicket tasks.
-
-Log in as Admin and Configure Departments:
-In the admin panel, archive the Maintenance department and set CIS Admin to “top level.”
-Create a Ticket as End User:
-Switch to the end user portal and create a ticket (e.g., Karen reports online banking down).
-
-
-<img width="768" height="305" alt="os Ticket 3 " src="https://github.com/user-attachments/assets/87980dc8-a990-4b61-8300-0753fa43b06f" />
-
-Log in as Help Desk Agent (John):
-Review, assign the correct department, set the SLA/severity, and correct the help topic.
-
-Assign/Transfer the Ticket:
-Route the ticket to the relevant department or team (e.g., Online Banking).
-
-<img width="536" height="362" alt="OS TICKET 4" src="https://github.com/user-attachments/assets/20ff15ec-d2a5-41af-9547-29b39157e806" />
-
-
-Log in as Specialist (Jane):
-As Jane, take ownership, troubleshoot, update ticket status, and log any actions taken.
-
-
-
-Resolve and Close the Ticket:
+**Important:** This project focuses only on installation. Post-installation configuration and ticket lifecycle are not included.
 
 
 
